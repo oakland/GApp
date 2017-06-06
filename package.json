@@ -1,0 +1,27 @@
+{
+  "name": "guardian-app",
+  "version": "1.0.0",
+  "description": "practise reactjs and make a news app for myself",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "test"
+  },
+  "keywords": [
+    "reactjs"
+  ],
+  "author": "jizq",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
