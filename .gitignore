@@ -6,3 +6,7 @@ npm-debug.log
 # IntelliJ
 *.iml
 /.idea
+
+# test
+test.js
+test.html
