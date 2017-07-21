@@ -6,3 +6,5 @@ example: https://content.guardianapis.com/search?api-key=563fc939-8ee4-40c1-bc6e
 # log
 1. register the Guardian, and get apikey from the platform.
 
+# todo
+1. make searchBar search sth by submit.

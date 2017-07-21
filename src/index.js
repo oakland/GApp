@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import ReactDom from "react-dom";
 import axios from "axios";
 
-import SearchBar from "./components/searchBar";
+import SearchBar from "./components/search_bar";
+import NewsPosts from "./components/news_posts";
 
 class App extends Component {
 	constructor(props) {
@@ -24,16 +25,6 @@ class App extends Component {
 		})
 	}
 
-	renderPosts() {
-		return (
-			this.state.newsPosts.map((news) => {
-				return (
-					<li key={news.id}><a href={news.webUrl}>{news.webTitle}</a></li>
-				);
-			})
-		);
-	}
-
 	onInputChange(query) {
 		const APIKEY = '563fc939-8ee4-40c1-bc6e-90bf63c58133';
 		const url = `http://content.guardianapis.com/search?q=${query}&api-key=${APIKEY}`;
@@ -48,14 +39,12 @@ class App extends Component {
 		return (
 			<div>
 				<SearchBar onInputChange={this.onInputChange} />
+				<hr />
 				<h2>
 					Top Ten News Today!
 				</h2>
-				<ul>
-	 				{this.state.newsPosts.length === 0 ? 'Loading...' : this.renderPosts()}
-	 			</ul>
+				<NewsPosts newsPosts={this.state.newsPosts} />
 			</div>
- 			
 		);
 	}
 }
