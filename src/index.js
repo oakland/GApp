@@ -9,7 +9,8 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			newsPosts: []
+			newsPosts: [],
+			keyword: ""
 		};
 		this.onInputChange = this.onInputChange.bind(this);
 	}
@@ -17,7 +18,8 @@ class App extends Component {
 	componentDidMount() {
 		// rootURL: https://content.guardianapis.com/search
 		// Example: http://content.guardianapis.com/search?order-by=newest&page=1&q=china&api-key=yourownapikey
-		const url = 'http://content.guardianapis.com/search?api-key=test';
+		const APIKEY = '563fc939-8ee4-40c1-bc6e-90bf63c58133';
+		const url = `http://content.guardianapis.com/search?api-key=${APIKEY}`;
 		axios.get(url).then((data) => {
 			this.setState({
 				newsPosts: [...data.data.response.results]
@@ -30,7 +32,8 @@ class App extends Component {
 		const url = `http://content.guardianapis.com/search?q=${query}&api-key=${APIKEY}`;
 		axios.get(url).then((data) => {
 			this.setState({
-				newsPosts: [...data.data.response.results]
+				newsPosts: [...data.data.response.results],
+				keyword: query
 			});
 		})
 	}
@@ -43,7 +46,7 @@ class App extends Component {
 				<h2>
 					Top Ten News Today!
 				</h2>
-				<NewsPosts newsPosts={this.state.newsPosts} />
+				<NewsPosts newsPosts={this.state.newsPosts} keyword={this.state.keyword} />
 			</div>
 		);
 	}
